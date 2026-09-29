@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALERTA: O Método Fim de Semana Revelado</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Arial Black', sans-serif; background:#000; color:#fff; line-height:1.4; overflow-x:hidden; }
+
+        /* Hero Aggressive */
+        .hero {
+            background: linear-gradient(180deg, #4a0000 0%, #000000 100%);
+            padding:80px 20px;
+            text-align:center;
+            border-bottom: 5px solid #ff0000;
+        }
+        .badge-urgency {
+            background:#ff0000;
+            color:#fff;
+            font-weight:bold;
+            font-size:20px;
+            padding:10px 20px;
+            border-radius:5px;
+            display:inline-block;
+            margin-bottom:20px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+        h1 { font-size:clamp(32px, 8vw, 65px); line-height:1.1; margin-bottom:20px; }
+        h1 span { color: #ffd700; }
+        .sub-agg { font-size:24px; color:#ccc; max-width:800px; margin:0 auto; }
+
+        /* Timer */
+        .timer-box {
+            background:#111;
+            border:3px solid #ff000;
+            padding:20px;
+            margin:30px 0;
+        }
+        #cd { font-size: 50px; color: #ff0000; font-weight: bold; }
+
+        /* Button */
+        .btn-agg {
+            display:inline-block;
+            background:#ff0000;
+            color:#fff;
+            padding:30px 60px;
+            font-size:32px;
+            font-weight:900;
+            text-decoration:none;
+            border-radius: 0;
+            text-transform:uppercase;
+            box-shadow: 0 0 40px rgba(255,0,0,0.6);
+            animation: pulse-red 0.8s infinite;
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .container { max-width:1000px; margin:0 auto; padding:60px 20px; }
+        .section-title { text-align:center; font-size:45px; color:#ffd000; margin-bottom:40px; text-transform: uppercase; }
+
+        .pain-box { background:#1a1a; padding:40px; border:2px solid #ff000; border-radius: 15px; }
+        .pain-list { list-style:none; margin-top:20px; }
+        .pain-list li { margin-bottom:20px; font-size:22px; color: #eee; }
+        .pain-list li::before { content: "✖ "; color: #ff000; }
+
+        .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px; }
+        .card { background:#111; padding:30px; border:1px solid #333; transition: 0.3s; }
+        .card:hover { border-color:#ffd700; transform: translateY(-5px); }
+        .card-num { font-size:50px; color:#ffd700; font-weight:bold; }
+
+        .testimonials { background:#0a0a0a; padding:60px 20px; text-align:center; }
+        .testimonial-card { display: flex; align-items: center; text-align: left; background:#111; padding:20px; border-radius:15px; margin-bottom: 20px; }
+        .user-img { width: 80px; height: 80px; border-radius: 50%; margin-right: 20px; border: 2px solid #ffd700; }
+
+        .price-box { background:#111; border:5px solid #ffd700; padding:50px; text-align:center; max-width:600px; margin:40px auto; }
+        .old-price { text-decoration:line-through; color:#666; font-size:30px; }
+        .new-price { font-size:80px; color:#ffd700; }
+
+        footer { text-align:center; padding:40px; color:#444; }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="badge-urgency">AVISO: ÚLTIMAS VAGAS COM DESCONTO</div>
+        <h1>PARE DE PERDER E GANHE <span>R$500+</span><br>em fim de semana!</h1>
+        <p class="sub-agg">O segredo que o mercado quer que vocêça. Sem estoque, sem patrão.</p>
+        <div class="timer-box">
+            OFERTA EXPIRA EM: <div id="cd">23:59:59</div>
+        </div>
+        <br>
+        <a href="https://pay.cakto.com.br/qn3afsn_114929" class="btn-agg">GARANTIR MINHA VAGA AGORA!</a>
+    </header>
+
+    <div class="container">
+        <div class="pain-box">
+            <h2 style="color:#ffd700; margin-bottom:20px;">VOCÊ ESTÁ CANSADO DISSO?</h2>
+            <ul class="pain-list">
+                <li>Trabalha o mês inteiro e o dinheiro some?</li>
+                <li>Não tem para investir em negócios caros?</li>
+                <li>Já tentou de tudo e sempre dá errado?</li>
+                <li>Vive no limite do boleto?</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="container">
+        <h2 class="section-title">O QUE VOCÊ VAI DOMINAR</h2>
+        <div class="modules">
+            <div class="card">
+                <div class="card-num">01</div>
+                <h3>Mentalidade de Ferro</h3>
+                <p>Por que 99% das pessoas fracassam e como ser diferente.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">02</div>
+                <h3>Produtos Ocultos</h3>
+                <p>Onde encontrar produtos digitais que vendem.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3>Vendas de Elite</h3>
+                <p>Os scripts exatos de WhatsApp para fechar qualquer cliente em minutos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 class="section-title">QUEM MUDOU DE VIDA REAL</h2>
+        <div class="testimonial-card">
+            <img src="https://i.pravatar.cc/150?u=maria" alt="Maria Silva" class="user-img">
+            <div>
+                <div style="color:#ffd700">⭐⭐⭐⭐</div>
+                <h4>Maria Silva</h4>
+                <p>Aluna há 2 dias</p>
+                <p>"Eu não acreditava, mas fiz meus primeiros R$300 no sábado apenas pelo WhatsApp. O método é muito simples e fácil de seguir!"</p>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <img src="https://i.pravatar.cc/150?u=ricardo" alt="Ricardo Souza" class="user-img">
+            <div>
+                <div style="color:#ffd700">⭐⭐⭐⭐⭐</div>
+                <h4>Ricardo Souza</h4>
+                <p>Aluno há 1 semana</p>
+                <p>"O investimento que já fiz este ano. O guia é direto ao ponto, sem enrolação. Recuperei na primeira semana!"</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="price-box">
+            <div class="old-price">DE R$497,00 POR APENAS</div>
+            <div class="new-price">R$11,90</div>
+            <p>Pagamento único | Acesso vitalício</p>
+            <br>
+            <a href="https://pay.cakto.com.br/qn3afsn_11429" class="btn-agg">GARANTIR MINHA VAGA AGORA!</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Metodo Fim de Semana. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        var endTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+        function updateTimer() {
+            var now = new Date().getTime();
+            var distance = endTime - now;
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("cd").innerHTML =
+                String(hours).padStart(2, '0') + ":" +
+                String(minutes).padStart(2, '0') + ":" +
+                String(seconds).padStart(2, '0');
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("cd").innerHTML = "00:00:00";
+            }
+        }
+        var x = setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
