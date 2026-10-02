@@ -5,104 +5,528 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALERTA: O Método Fim de Semana Revelado</title>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family: 'Arial Black', sans-serif; background:#000; color:#fff; line-height:1.4; overflow-x:hidden; }
+        :root {
+            --bg-dark: #08080d;
+            --bg-hero-top: #1a0a14;
+            --bg-card: #12121a;
+            --bg-elev: #1a1a26;
+            --border: #26263a;
+            --primary: #ff2e4d;
+            --primary-dark: #d91d3b;
+            --primary-glow: rgba(255, 46, 77, 0.55);
+            --orange: #ff6b35;
+            --gold: #ffc93c;
+            --text: #ffffff;
+            --text-muted: #a8a8b8;
+            --text-dim: #6b6b80;
+        }
 
-        /* Hero Aggressive */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Arial Black', 'Segoe UI', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ HERO ============ */
         .hero {
-            background: linear-gradient(180deg, #4a0000 0%, #000000 100%);
-            padding:80px 20px;
-            text-align:center;
-            border-bottom: 5px solid #ff0000;
+            background:
+                radial-gradient(ellipse at top, rgba(255, 46, 77, 0.15) 0%, transparent 55%),
+                linear-gradient(180deg, var(--bg-hero-top) 0%, var(--bg-dark) 100%);
+            padding: clamp(50px, 10vw, 100px) 20px clamp(40px, 8vw, 80px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--orange), var(--primary), transparent);
+        }
+
         .badge-urgency {
-            background:#ff0000;
-            color:#fff;
-            font-weight:bold;
-            font-size:20px;
-            padding:10px 20px;
-            border-radius:5px;
-            display:inline-block;
-            margin-bottom:20px;
-            animation: blink 1s infinite;
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            color: #fff;
+            font-weight: 900;
+            font-size: clamp(13px, 2.5vw, 16px);
+            letter-spacing: 1px;
+            padding: 12px 26px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 28px;
+            box-shadow: 0 0 30px var(--primary-glow), inset 0 1px 0 rgba(255,255,255,0.25);
+            animation: blink 1.4s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
         }
+
         @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.4; }
-            100% { opacity: 1; }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.75; transform: scale(1.03); }
         }
-        h1 { font-size:clamp(32px, 8vw, 65px); line-height:1.1; margin-bottom:20px; }
-        h1 span { color: #ffd700; }
-        .sub-agg { font-size:24px; color:#ccc; max-width:800px; margin:0 auto; }
 
-        /* Timer */
+        h1 {
+            font-size: clamp(28px, 7vw, 68px);
+            line-height: 1.08;
+            margin-bottom: 22px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: var(--gold);
+        }
+
+        .sub-agg {
+            font-size: clamp(15px, 2.4vw, 22px);
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 12px;
+            line-height: 1.55;
+            font-weight: 400;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============ TIMER ============ */
         .timer-box {
-            background:#111;
-            border:3px solid #ff000;
-            padding:20px;
-            margin:30px 0;
+            background: rgba(18, 18, 26, 0.9);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: clamp(20px, 4vw, 30px) clamp(16px, 4vw, 40px);
+            margin: 34px auto;
+            max-width: 520px;
+            font-size: clamp(12px, 2.2vw, 15px);
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--text-muted);
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.05),
+                0 0 0 1px var(--primary-glow) inset;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
         }
-        #cd { font-size: 50px; color: #ff0000; font-weight: bold; }
 
-        /* Button */
+        #cd {
+            font-size: clamp(38px, 9vw, 58px);
+            font-weight: 900;
+            color: var(--primary);
+            margin-top: 8px;
+            letter-spacing: 2px;
+            font-variant-numeric: tabular-nums;
+            text-shadow: 0 0 40px var(--primary-glow);
+            font-family: 'Arial Black', 'Segoe UI', monospace;
+        }
+
+        /* ============ BUTTON ============ */
         .btn-agg {
-            display:inline-block;
-            background:#ff0000;
-            color:#fff;
-            padding:30px 60px;
-            font-size:32px;
-            font-weight:900;
-            text-decoration:none;
-            border-radius: 0;
-            text-transform:uppercase;
-            box-shadow: 0 0 40px rgba(255,0,0,0.6);
-            animation: pulse-red 0.8s infinite;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--orange) 100%);
+            color: #fff;
+            padding: clamp(18px, 3vw, 26px) clamp(28px, 5vw, 55px);
+            font-size: clamp(16px, 2.6vw, 24px);
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow:
+                0 10px 40px var(--primary-glow),
+                0 0 0 1px rgba(255,255,255,0.08) inset,
+                0 2px 0 rgba(255,255,255,0.15) inset;
+            animation: pulse-red 1.3s ease-in-out infinite;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            word-wrap: break-word;
         }
+
+        .btn-agg:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 18px 60px var(--primary-glow),
+                0 0 0 1px rgba(255,255,255,0.15) inset;
+        }
+
+        .btn-agg:active { transform: translateY(0) scale(0.98); }
+
         @keyframes pulse-red {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0%, 100% {
+                transform: scale(1);
+                box-shadow:
+                    0 10px 40px var(--primary-glow),
+                    0 0 0 1px rgba(255,255,255,0.08) inset;
+            }
+            50% {
+                transform: scale(1.045);
+                box-shadow:
+                    0 15px 70px var(--primary-glow),
+                    0 0 0 1px rgba(255,255,255,0.15) inset;
+            }
         }
 
-        .container { max-width:1000px; margin:0 auto; padding:60px 20px; }
-        .section-title { text-align:center; font-size:45px; color:#ffd000; margin-bottom:40px; text-transform: uppercase; }
+        /* ============ CONTAINER ============ */
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: clamp(40px, 7vw, 80px) 20px;
+        }
 
-        .pain-box { background:#1a1a; padding:40px; border:2px solid #ff000; border-radius: 15px; }
-        .pain-list { list-style:none; margin-top:20px; }
-        .pain-list li { margin-bottom:20px; font-size:22px; color: #eee; }
-        .pain-list li::before { content: "✖ "; color: #ff000; }
+        .section-title {
+            text-align: center;
+            font-size: clamp(26px, 5vw, 48px);
+            font-weight: 900;
+            margin-bottom: 44px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            background: linear-gradient(180deg, #fff 0%, #b8b8c8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px; }
-        .card { background:#111; padding:30px; border:1px solid #333; transition: 0.3s; }
-        .card:hover { border-color:#ffd700; transform: translateY(-5px); }
-        .card-num { font-size:50px; color:#ffd700; font-weight:bold; }
+        /* ============ PAIN BOX ============ */
+        .pain-box {
+            background:
+                radial-gradient(ellipse at top left, rgba(255, 46, 77, 0.08) 0%, transparent 60%),
+                var(--bg-card);
+            padding: clamp(28px, 5vw, 50px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
+            position: relative;
+            overflow: hidden;
+        }
 
-        .testimonials { background:#0a0a0a; padding:60px 20px; text-align:center; }
-        .testimonial-card { display: flex; align-items: center; text-align: left; background:#111; padding:20px; border-radius:15px; margin-bottom: 20px; }
-        .user-img { width: 80px; height: 80px; border-radius: 50%; margin-right: 20px; border: 2px solid #ffd700; }
+        .pain-box::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--orange));
+        }
 
-        .price-box { background:#111; border:5px solid #ffd700; padding:50px; text-align:center; max-width:600px; margin:40px auto; }
-        .old-price { text-decoration:line-through; color:#666; font-size:30px; }
-        .new-price { font-size:80px; color:#ffd700; }
+        .pain-box h2 {
+            color: var(--gold);
+            margin-bottom: 24px;
+            font-size: clamp(20px, 3.5vw, 30px);
+            font-weight: 900;
+            letter-spacing: -0.3px;
+        }
 
-        footer { text-align:center; padding:40px; color:#444; }
+        .pain-list { list-style: none; margin-top: 20px; }
+
+        .pain-list li {
+            margin-bottom: 18px;
+            font-size: clamp(15px, 2.2vw, 20px);
+            color: #e8e8f0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-weight: 600;
+            line-height: 1.5;
+            padding-left: 4px;
+        }
+
+        .pain-list li::before {
+            content: "✖ ";
+            color: var(--primary);
+            font-weight: 900;
+            margin-right: 6px;
+        }
+
+        /* ============ MODULES ============ */
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: clamp(24px, 4vw, 34px);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--orange));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 46, 77, 0.5);
+            transform: translateY(-6px);
+            box-shadow:
+                0 25px 50px rgba(0,0,0,0.5),
+                0 0 40px rgba(255, 46, 77, 0.12);
+            background: var(--bg-elev);
+        }
+
+        .card:hover::before { transform: scaleX(1); }
+
+        .card-num {
+            font-size: clamp(36px, 6vw, 52px);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold), var(--orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: clamp(17px, 2.6vw, 22px);
+            margin-bottom: 10px;
+            font-weight: 900;
+            letter-spacing: -0.2px;
+        }
+
+        .card p {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: clamp(14px, 2vw, 16px);
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials {
+            background:
+                radial-gradient(ellipse at center, rgba(255, 46, 77, 0.06) 0%, transparent 60%),
+                #0b0b12;
+            padding: clamp(50px, 8vw, 90px) 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .testimonials .section-title { margin-bottom: 48px; }
+
+        .testimonial-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            background: var(--bg-card);
+            padding: clamp(20px, 4vw, 28px);
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            gap: 18px;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(255, 46, 77, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+        }
+
+        .user-img {
+            width: clamp(56px, 10vw, 72px);
+            height: clamp(56px, 10vw, 72px);
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            flex-shrink: 0;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(255, 201, 60, 0.25);
+        }
+
+        .testimonial-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: clamp(14px, 2.5vw, 18px);
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-content h4 {
+            font-size: clamp(15px, 2.4vw, 18px);
+            font-weight: 900;
+            margin-bottom: 3px;
+            color: #fff;
+        }
+
+        .testimonial-content .meta {
+            font-size: clamp(11px, 1.8vw, 13px);
+            color: var(--text-dim);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .testimonial-content p {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: clamp(13px, 2vw, 15px);
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* ============ PRICE ============ */
+        .price-box {
+            background:
+                radial-gradient(ellipse at top, rgba(255, 201, 60, 0.08) 0%, transparent 60%),
+                var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: clamp(35px, 6vw, 60px) clamp(20px, 5vw, 50px);
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+        }
+
+        .price-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--gold), var(--primary), var(--orange));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-dim);
+            font-size: clamp(15px, 2.5vw, 20px);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .new-price {
+            font-size: clamp(56px, 12vw, 88px);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin: 8px 0;
+            letter-spacing: -2px;
+        }
+
+        .price-box .guarantee {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: clamp(12px, 2vw, 15px);
+            color: var(--text-muted);
+            margin-bottom: 26px;
+            font-weight: 600;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            text-align: center;
+            padding: clamp(30px, 5vw, 50px) 20px;
+            color: var(--text-dim);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: clamp(12px, 2vw, 14px);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 640px) {
+            .btn-agg {
+                width: 100%;
+                padding: 20px 20px;
+                font-size: 16px;
+            }
+
+            .testimonial-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .testimonial-content {
+                text-align: center;
+            }
+
+            .pain-list li { font-size: 15px; }
+        }
+
+        @media (max-width: 400px) {
+            .badge-urgency { font-size: 11px; padding: 10px 16px; }
+            #cd { letter-spacing: 1px; }
+        }
     </style>
 </head>
 <body>
+
     <header class="hero">
         <div class="badge-urgency">AVISO: ÚLTIMAS VAGAS COM DESCONTO</div>
         <h1>PARE DE PERDER E GANHE <span>R$500+</span><br>em um fim de semana!</h1>
         <p class="sub-agg">O segredo que o mercado não quer que você saiba. Sem estoque, sem patrão.</p>
         <div class="timer-box">
-            OFERTA EXPIRA EM: <div id="cd">23:59:59</div>
+            OFERTA EXPIRA EM:
+            <div id="cd">23:59:59</div>
         </div>
-        <br>
         <a href="https://pay.cakto.com.br/qn3afsn_114929" class="btn-agg">GARANTIR MINHA VAGA AGORA!</a>
     </header>
 
     <div class="container">
         <div class="pain-box">
-            <h2 style="color:#ffd700; margin-bottom:20px;">VOCÊ ESTÁ CANSADO DISSO?</h2>
+            <h2>VOCÊ ESTÁ CANSADO DISSO?</h2>
             <ul class="pain-list">
                 <li>Trabalha o mês inteiro e o dinheiro some?</li>
                 <li>Não tem para investir em negócios caros?</li>
@@ -135,22 +559,24 @@
 
     <section class="testimonials">
         <h2 class="section-title">QUEM MUDOU DE VIDA REAL</h2>
-        <div class="testimonial-card">
-            <img src="https://i.pravatar.cc/150?u=maria" alt="Maria Silva" class="user-img">
-            <div>
-                <div style="color:#ffd700">⭐⭐⭐⭐</div>
-                <h4>Josemar Silva</h4>
-                <p>Aluno há 2 dias</p>
-                <p>"Eu não acreditava, mas fiz meus primeiros R$300 no sábado apenas pelo WhatsApp. O método é muito simples e fácil de seguir!"</p>
+        <div class="testimonial-wrapper">
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?u=maria" alt="Maria Silva" class="user-img">
+                <div class="testimonial-content">
+                    <div class="stars">⭐⭐⭐⭐</div>
+                    <h4>Josemar Silva</h4>
+                    <p class="meta">Aluno há 2 dias</p>
+                    <p>"Eu não acreditava, mas fiz meus primeiros R$300 no sábado apenas pelo WhatsApp. O método é muito simples e fácil de seguir!"</p>
+                </div>
             </div>
-        </div>
-        <div class="testimonial-card">
-            <img src="https://uploads.onecompiler.io/43v37pq3s/1782687974830/customer3.jpg" alt="Ricardo Souza" class="user-img">
-            <div>
-                <div style="color:#ffd700">⭐⭐⭐⭐⭐</div>
-                <h4>Ricardo Souza</h4>
-                <p>Aluno há 1 semana</p>
-                <p>"O melhor investimento que já fiz este ano. O guia é direto ao ponto, sem enrolação. Recuperei na primeira semana!"</p>
+            <div class="testimonial-card">
+                <img src="https://uploads.onecompiler.io/43v37pq3s/1782687974830/customer3.jpg" alt="Ricardo Souza" class="user-img">
+                <div class="testimonial-content">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <h4>Ricardo Souza</h4>
+                    <p class="meta">Aluno há 1 semana</p>
+                    <p>"O melhor investimento que já fiz este ano. O guia é direto ao ponto, sem enrolação. Recuperei na primeira semana!"</p>
+                </div>
             </div>
         </div>
     </section>
@@ -159,8 +585,7 @@
         <div class="price-box">
             <div class="old-price">DE R$497,00 POR APENAS</div>
             <div class="new-price">R$11,90</div>
-            <p>Pagamento único | Acesso vitalício</p>
-            <br>
+            <p class="guarantee">Pagamento único | Acesso vitalício</p>
             <a href="https://pay.cakto.com.br/qn3afsn_11429" class="btn-agg">GARANTIR MINHA VAGA AGORA!</a>
         </div>
     </div>
